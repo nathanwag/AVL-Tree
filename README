@@ -1,0 +1,14 @@
+O objetivo do trabalho é a implementação das rotinas de manipulação de uma árvore AVL. O trabalho deve
+conter, além de uma implementação da árvore, uma maneira de visualização da estrutura da árvore ao
+longo do processo. Deve ser disponibilizado um menu que permita a realização de todos os testes em
+relação aos métodos solicitados.
+
+IMPLEMENTAÇÃO
+
+A árvore AVL do trabalho deve armazenar números inteiros e fornecer métodos de busca, inserção e
+remoção, bem como os encaminhamentos em profundidade em árvores binárias apresentados em aula
+(Pré-Ordem, Pós-Ordem e Em-Ordem).
+
+REQUISITOS
+
+O trabalho pode ser desenvolvido em Java, C, C++, C# ou Python.
