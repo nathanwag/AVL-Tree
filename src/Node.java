@@ -9,15 +9,6 @@ public class Node {
         height = 0;
     }
 
-    @Override
-    public String toString() {
-        return "Node{" +
-                "root=" + root +
-                ", height=" + height +
-                ", left=" + left +
-                ", right=" + right +
-                '}';
-    }
 
     public int getRoot() {
         return root;
