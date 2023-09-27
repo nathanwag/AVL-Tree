@@ -1,5 +1,19 @@
+package model;
+
 public class AVLTree {
     private Node root;
+
+    public AVLTree() {
+        root = null;
+    }
+
+    public Node getRoot() {
+        return root;
+    }
+
+    public void setRoot(Node root) {
+        this.root = root;
+    }
 
     // SEARCH AN ELEMENT
 
@@ -92,14 +106,18 @@ public class AVLTree {
         return node != null ? node.getHeight() : -1;
     }
 
-    private int balanceFactor(Node node) {
-        return calculateHeight(node.getLeft()) - calculateHeight(node.getRight());
-    }
-
     private void updateHeight(Node node) {
         int leftHeight = calculateHeight(node.getLeft());
         int rightHeight = calculateHeight(node.getRight());
-        node.setHeight(leftHeight - rightHeight + 1);
+        node.setHeight(1 + Math.max(leftHeight, rightHeight));
+    }
+
+    private int balanceFactor(Node node) {
+        if(node == null) {
+            return 0;
+        } else {
+            return calculateHeight(node.getLeft()) - calculateHeight(node.getRight());
+        }
     }
 
     private Node rotateRight(Node node) {

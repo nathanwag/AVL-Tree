@@ -1,14 +1,12 @@
+package model;
+
 public class Node {
     private int root, height;
     private Node left, right;
 
     public Node(int root) {
         this.root = root;
-        left = null;
-        right = null;
-        height = 0;
     }
-
 
     public int getRoot() {
         return root;
