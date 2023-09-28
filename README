@@ -8,7 +8,3 @@ IMPLEMENTAÇÃO
 A árvore AVL do trabalho deve armazenar números inteiros e fornecer métodos de busca, inserção e
 remoção, bem como os encaminhamentos em profundidade em árvores binárias apresentados em aula
 (Pré-Ordem, Pós-Ordem e Em-Ordem).
-
-REQUISITOS
-
-O trabalho pode ser desenvolvido em Java, C, C++, C# ou Python.
