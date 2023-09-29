@@ -100,7 +100,7 @@ public class AVLTree {
         return node;
     }
 
-    // BALANCE FACTOR
+    // BALANCE TREE
 
     private int calculateHeight(Node node) {
         return node != null ? node.getHeight() : -1;
@@ -144,31 +144,29 @@ public class AVLTree {
         return rightChild;
     }
 
+    private boolean simpleRotateRight(Node node) {
+        return calculateHeight(node.getLeft().getLeft()) > calculateHeight(node.getLeft().getRight());
+    }
+
+    private boolean simpleRotateLeft(Node node) {
+        return calculateHeight(node.getRight().getRight()) > calculateHeight(node.getRight().getLeft());
+    }
+
     private Node balance(Node node) {
-        int balanceFactor = balanceFactor(node);
+        updateHeight(node);
 
-        if(balanceFactor > 1) {
-            if(balanceFactor(node.getLeft()) <= 0) {
-                // ROTATE RIGHT
-                node = rotateRight(node);
-            } else {
-                // ROTATE RIGHT-LEFT
+        if(balanceFactor(node) > 1) {
+            if(!simpleRotateRight(node)) {
                 node.setLeft(rotateLeft(node.getLeft()));
-                node = rotateRight(node);
             }
+            node = rotateRight(node);
         }
-
-        if(balanceFactor < -1) {
-            if(balanceFactor(node.getRight()) >= 0) {
-                // ROTATE LEFT
-                node = rotateLeft(node);
-            } else {
-                // ROTATE LEFT-RIGHT
+        else if(balanceFactor(node) < -1) {
+            if(!simpleRotateLeft(node)) {
                 node.setRight(rotateRight(node.getRight()));
-                node = rotateLeft(node);
             }
+            node = rotateLeft(node);
         }
-
         return node;
     }
 }

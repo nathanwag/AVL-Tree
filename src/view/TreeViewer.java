@@ -5,22 +5,22 @@ import model.Node;
 
 public class TreeViewer {
     public void printTree(AVLTree avlTree) {
-        printTreeRecursive(avlTree.getRoot(), 0, 10);
+        printTreeRecursive(avlTree.getRoot(), 0, 10,"┌ ");
     }
 
-    private void printTreeRecursive(Node root, int space, int incrementer) {
+    private void printTreeRecursive(Node root, int space, int incrementer, String pos) {
         if(root == null) {
             return;
         }
         space += incrementer;
 
-        printTreeRecursive(root.getRight(), space, incrementer);
+        printTreeRecursive(root.getRight(), space, incrementer,"┌ ");
 
         for(int i = incrementer; i < space; i++) {
             System.out.print(" ");
         }
-        System.out.println(root.getRoot());
-        printTreeRecursive(root.getLeft(), space, incrementer);
+        System.out.println(pos+root.getRoot());
+        printTreeRecursive(root.getLeft(), space, incrementer,"┌ ");
     }
 
 }
