@@ -8,6 +8,19 @@ public class Node {
         this.root = root;
     }
 
+    @Override
+    public String toString() {
+        if(left == null && right == null) {
+            return "Raiz: " + root + ", Elemento esquerda e direita: nulo nulo, Altura: " + height;
+        } else if(left == null) {
+            return "Raiz: " + root + ", Elemento esquerda e direita: nulo " + right.root + ", Altura: " + height;
+        } else if(right == null) {
+            return "Raiz: " + root + ", Elemento esquerda e direita: " + left.root + " nulo, Altura: " + height;
+        } else {
+            return "Raiz: " + root + ", Elemento esquerda e direita: " + left.root + " " + right.root + ", Altura: " + height;
+        }
+    }
+
     public int getRoot() {
         return root;
     }

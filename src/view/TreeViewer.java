@@ -23,4 +23,22 @@ public class TreeViewer {
         printTreeRecursive(root.getLeft(), space, incrementer,"┌ ");
     }
 
+    public void printMenu() {
+        System.out.println("+-------------- ESCOLHA A MANIPULÇÃO DESEJADA ---------------+");
+        System.out.println("| * [1] - Imprimir árvore;                                   |");
+        System.out.println("| * [2] - Buscar elemento na árvore;                         |");
+        System.out.println("| * [3] - Inserir elemento na árvore;                        |");
+        System.out.println("| * [4] - Remover elemento da árvore;                        |");
+        System.out.println("| * [5] - Pré-ordem, Pós-ordem ou Em-ordem;                  |");
+        System.out.println("| * [6] - Sair;                                              |");
+        System.out.println("+------------------------------------------------------------+");
+    }
+
+    public void printOrdem() {
+        System.out.println("+--------------- ESCOLHA IMPRESSÃO DE ÁRVORE ----------------+");
+        System.out.println("| * [1] - Imprimir árvore em Pré-ordem;                      |");
+        System.out.println("| * [2] - Imprimir árvore em Pós-ordem;                      |");
+        System.out.println("| * [3] - Imprimir árvore Em-ordem;                          |");
+        System.out.println("+------------------------------------------------------------+");
+    }
 }

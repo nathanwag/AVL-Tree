@@ -48,7 +48,7 @@ public class AVLTree {
         } else if(key > node.getRoot()) {
             node.setRight(insertRecursive(key, node.getRight()));
         } else {
-            System.out.println("There is already an element with this key!");
+            System.out.println("Já existe um elemento com esse número na árvore!");
         }
 
         updateHeight(node);
@@ -79,8 +79,10 @@ public class AVLTree {
         // ONE CHILDREN
         else if(node.getLeft() == null) {
             node.setRoot(node.getRight().getRoot());
+            node.setRight(null);
         } else if(node.getRight() == null) {
             node.setRoot(node.getLeft().getRoot());
+            node.setLeft(null);
         }
         // TWO CHILDREN
         else {
@@ -107,9 +109,11 @@ public class AVLTree {
     }
 
     private void updateHeight(Node node) {
-        int leftHeight = calculateHeight(node.getLeft());
-        int rightHeight = calculateHeight(node.getRight());
-        node.setHeight(1 + Math.max(leftHeight, rightHeight));
+        if(node != null) {
+            int leftHeight = calculateHeight(node.getLeft());
+            int rightHeight = calculateHeight(node.getRight());
+            node.setHeight(1 + Math.max(leftHeight, rightHeight));
+        }
     }
 
     private int balanceFactor(Node node) {
@@ -154,7 +158,6 @@ public class AVLTree {
 
     private Node balance(Node node) {
         updateHeight(node);
-
         if(balanceFactor(node) > 1) {
             if(!simpleRotateRight(node)) {
                 node.setLeft(rotateLeft(node.getLeft()));
@@ -168,5 +171,36 @@ public class AVLTree {
             node = rotateLeft(node);
         }
         return node;
+    }
+
+    // ORDERS
+
+    public void preOrder(Node node) {
+        if(node == null) {
+            return;
+        }
+        System.out.print(node.getRoot() + " ");
+
+        preOrder(node.getLeft());
+        preOrder(node.getRight());
+    }
+
+    public void postOrder(Node node) {
+        if(node == null) {
+            return;
+        }
+        postOrder(node.getLeft());
+        postOrder(node.getRight());
+
+        System.out.print(node.getRoot() + " ");
+    }
+
+    public void inOrder(Node node) {
+        if(node == null) {
+            return;
+        }
+        inOrder(node.getLeft());
+        System.out.print(node.getRoot() + " ");
+        inOrder(node.getRight());
     }
 }
